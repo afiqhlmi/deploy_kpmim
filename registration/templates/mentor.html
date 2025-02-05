@@ -1,0 +1,28 @@
+<body>
+    <h1>Kolej Professional MARA Indera Mahkota</h1>
+    <h2>MENTOR</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        Mentor ID: <input type="text" name="MID"><br><br>
+        Mentor Name: <input type="text" name="MNAME"><br><br>
+        Mentor Email: <input type="text" name="MEMAIL"><br><br>
+        <input type="submit" value="SAVE"><br><br>
+    </form>
+    <br><br>
+    {{ message }} 
+</body>
+<br><br>
+    <table border="1">
+        <th>MentorCd</th><th>Name</th><th>email</th>
+
+    {% for x in allmentor %}
+    <tr>
+        <td>{{ x.mentorCd }}</td>
+        <td>{{ x.Name }}</td>
+        <td>{{ x.email }}</td>
+    </tr>
+
+    {% endfor %}
+    </table>
+
+<a href="{% url 'index' %}">Homepage</a>
